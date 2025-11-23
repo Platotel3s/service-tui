@@ -199,5 +199,5 @@ Thanks for using TUI System Service Manager!
 
 ## 📷 Documentation  
 
-<img href="./ex1.png">
-<img href="./ex2.png" />
+![alt text](https://github.com/Platotel3s/tui-system-service/ex1.png) 
+![alt text](https://github.com/Platotel3s/tui-system-service/ex2.png) 
