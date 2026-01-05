@@ -51,44 +51,11 @@ python3 --version
 ### **1. Clone the repository**
 
 ```bash
-git clone https://github.com/USERNAME/tui-system-service.git
+git clone https://github.com/Platotel3s/tui-system-service.git
 cd tui-system-service
 ```
 
-Replace `USERNAME` with your GitHub username.
-
-### **2. (Optional) Create virtual environment**
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-### **3. Run the app**
-
-```bash
-python3 service-tui.py
-```
-
-That's it.
-
----
-
-## ⌨️ Controls
-
-| Key         | Action                   |
-| ----------- | ------------------------ |
-| ↑ / ↓       | Move cursor              |
-| PgUp / PgDn | Scroll faster            |
-| `/`         | Search services          |
-| `s`         | Start selected service   |
-| `t`         | Stop selected service    |
-| `r`         | Restart selected service |
-| `q`         | Quit                     |
-
----
-
-## 🔧 Optional: Make it runnable globally
+## 🔧 Make it runnable globally
 
 If you want to run the TUI from anywhere:
 
@@ -105,7 +72,19 @@ service-tui
 ```
 
 ---
+## ⌨️ Controls
 
+| Key         | Action                   |
+| ----------- | ------------------------ |
+| ↑ / ↓       | Move cursor              |
+| PgUp / PgDn | Scroll faster            |
+| `/`         | Search services          |
+| `s`         | Start selected service   |
+| `t`         | Stop selected service    |
+| `r`         | Restart selected service |
+| `q`         | Quit                     |
+
+---
 ## 🐍 Notes for Python Users
 
 Python doesn’t require compile steps like Rust or Go.
