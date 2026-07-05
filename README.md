@@ -1,4 +1,4 @@
-Markdown# TUI System Service Manager
+# TUI System Service Manager
 
 A simple **Terminal User Interface (TUI)** tool to help you **start, stop, restart, search, and manage systemd services** without needing to type long commands or remember service names.
 
@@ -20,7 +20,7 @@ This tool works on **any Linux distribution** that uses **systemd**, such as:
 ## 📷 Screenshots
 
 ![Main Interface](https://github.com/Platotel3s/service-tui/blob/main/image.png)
-![Search & Manage](https://github.com/Platotel3s/service-tui/blob/main/ex2.png) 
+![Search & Manage](https://github.com/Platotel3s/service-tui/blob/main/ex2.png)
 
 ---
 
@@ -48,18 +48,137 @@ You can check your Python version with:
 
 ```bash
 python3 --version
-🚀 Installation & SetupIkuti langkah-langkah berikut untuk memasang dan menjalankan service-tui di sistem Linux kamu.1. Clone the RepositoryClone repository ini ke komputer lokal kamu dan masuk ke foldernya:Bashgit clone git@github.com:Platotel3s/service-tui.git
+```
+
+---
+
+## 🚀 Installation & Setup
+
+Ikuti langkah-langkah berikut untuk memasang dan menjalankan `service-tui` di sistem Linux kamu.
+
+### 1. Clone the Repository
+
+Clone repository ini ke komputer lokal kamu dan masuk ke foldernya:
+
+```bash
+git clone git@github.com:Platotel3s/service-tui.git
 cd service-tui
-2. Grant Executable PermissionSebelum membuat tautan global, berikan izin eksekusi (executable permission) ke file script utamanya:Bashchmod +x service-tui.py
-3. Create a Global SymlinkAgar tool ini bisa dipanggil langsung dari direktori mana pun tanpa mengetik python3, buat symbolic link ke direktori binary lokal sistem Anda:Bashsudo ln -s $(pwd)/service-tui.py /usr/local/bin/service-tui
-4. Run the TUISekarang kamu bisa langsung menjalankan aplikasi ini cukup dengan mengetik perintah berikut di terminal:Bashservice-tui
-Note: Beberapa aksi seperti Start, Stop, dan Restart service memerlukan hak akses root. Jika prompt meminta password saat menjalankan aksi tersebut, itu adalah hal yang wajar.⌨️ ControlsKeyAction↑ / ↓Move cursor up / downPgUp / PgDnScroll faster/Search services by namesStart selected servicetStop selected servicerRestart selected serviceqQuit application🐍 Notes for Python UsersPython doesn’t require compile steps like Rust or Go.However, if you want to distribute this, you can convert it into a standalone binary using:  ❗ Option A — Using PyInstallerBashpip install pyinstaller
+```
+
+### 2. Grant Executable Permission
+
+Sebelum membuat tautan global, berikan izin eksekusi (executable permission) ke file script utamanya:
+
+```bash
+chmod +x service-tui.py
+```
+
+### 3. Create a Global Symlink
+
+Agar tool ini bisa dipanggil langsung dari direktori mana pun tanpa mengetik `python3`, buat symbolic link ke direktori binary lokal sistem kamu:
+
+```bash
+sudo ln -s $(pwd)/service-tui.py /usr/local/bin/service-tui
+```
+
+### 4. Run the TUI
+
+Sekarang kamu bisa langsung menjalankan aplikasi ini cukup dengan mengetik perintah berikut di terminal:
+
+```bash
+service-tui
+```
+
+> **Note:** Beberapa aksi seperti Start, Stop, dan Restart service memerlukan hak akses root. Jika prompt meminta password saat menjalankan aksi tersebut, itu adalah hal yang wajar.
+
+---
+
+## ⌨️ Controls
+
+| Key         | Action                    |
+|-------------|---------------------------|
+| ↑ / ↓       | Move cursor up / down     |
+| PgUp / PgDn | Scroll faster              |
+| /           | Search services by name   |
+| s           | Start selected service    |
+| t           | Stop selected service     |
+| r           | Restart selected service  |
+| q           | Quit application           |
+
+---
+
+## 🐍 Notes for Python Users
+
+Python doesn't require compile steps like Rust or Go. However, if you want to distribute this, you can convert it into a standalone binary using:
+
+### ❗ Option A — Using PyInstaller
+
+```bash
+pip install pyinstaller
 pyinstaller --onefile service-tui.py
-Your binary will be inside:  dist/service-tui
-Users on any distro can run it without Python.📦 Packaging for Other Linux UsersIf you upload this to GitHub, no extra configuration is needed except if you want others to install it easily.  You can add optional packages:  ✅ RPM (Fedora, RHEL, CentOS)Use rpmbuild.  ✅ DEB (Ubuntu, Debian)Use dpkg-deb.  ✅ AppImage (universal)Works on ALL distros.  If you prefer Rust-style simplicityRust has cargo build --release which generates a portable static binary.Python doesn't do that by default — but PyInstaller binary is closest equivalent.  🛠 DevelopmentRun with auto-reload (developer mode)Bashpython3 service-tui.py
-Directory structureservice-tui/
+```
+
+Your binary will be inside:
+
+```
+dist/service-tui
+```
+
+Users on any distro can run it without Python installed.
+
+---
+
+## 📦 Packaging for Other Linux Users
+
+If you upload this to GitHub, no extra configuration is needed — except if you want others to install it more easily. You can add optional packages:
+
+* ✅ **RPM** (Fedora, RHEL, CentOS) — use `rpmbuild`
+* ✅ **DEB** (Ubuntu, Debian) — use `dpkg-deb`
+* ✅ **AppImage** (universal) — works on ALL distros
+
+> If you prefer Rust-style simplicity: Rust has `cargo build --release`, which generates a portable static binary. Python doesn't do that by default — but a PyInstaller binary is the closest equivalent.
+
+---
+
+## 🛠 Development
+
+Run directly for development/testing:
+
+```bash
+python3 service-tui.py
+```
+
+### Directory Structure
+
+```
+service-tui/
 ├── service-tui.py
 ├── README.md
 ├── LICENSE
 └── *.png
-🤝 ContributingPRs and improvements are welcome!Especially features like:Enabling service masksViewing logs (journalctl integration)Sorting by active/inactive statusMouse support📝 LicenseMIT License — feel free to modify and use.⭐ SupportIf you find this tool useful, please give this repository a star! ⭐Thanks for using TUI System Service Manager!
+```
+
+---
+
+## 🤝 Contributing
+
+PRs and improvements are welcome! Especially features like:
+
+* Enabling service masks
+* Viewing logs (`journalctl` integration)
+* Sorting by active/inactive status
+* Mouse support
+
+---
+
+## 📝 License
+
+MIT License — feel free to modify and use.
+
+---
+
+## ⭐ Support
+
+If you find this tool useful, please give this repository a star! ⭐
+
+Thanks for using TUI System Service Manager!
